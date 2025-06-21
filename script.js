@@ -1,9 +1,9 @@
-// Set the date we're counting down to (60 days from now)
+// Set the date we're counting down to (45 days from now)
         const countDownDate = new Date();
-        countDownDate.setDate(countDownDate.getDate() + 60);
+        countDownDate.setDate(countDownDate.getDate() + 45);
         
         // Update the count down every 1 second
-        const x = setInterval(function() {
+        const countdown = setInterval(function() {
             // Get today's date and time
             const now = new Date().getTime();
             
@@ -16,25 +16,18 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
-            // Display the result
+            // Output the result
             document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
             document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
             document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
             document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
             
-            // If the count down is finished, write some text
+            // If the count down is over, write some text 
             if (distance < 0) {
-                clearInterval(x);
+                clearInterval(countdown);
                 document.getElementById("days").innerHTML = "00";
                 document.getElementById("hours").innerHTML = "00";
                 document.getElementById("minutes").innerHTML = "00";
                 document.getElementById("seconds").innerHTML = "00";
             }
         }, 1000);
-        
-        // Button functionality
-        document.querySelectorAll('.cta-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                alert('Thank you for your interest in Godrej Urban Greens! Our sales team will contact you shortly.');
-            });
-        });
